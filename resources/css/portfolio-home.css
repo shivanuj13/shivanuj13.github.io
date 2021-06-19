@@ -1,5 +1,20 @@
-  
+#top-title {
+    text-align: center;
+    background-color: bisque;
+   
+   
+}
+
 #intro {
     background-color :aquamarine;
     
+}
+
+#about-text
+{  
+    border: 2px solid;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+
 }
