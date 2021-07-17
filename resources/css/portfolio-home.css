@@ -123,14 +123,15 @@ footer li:hover {
 }
 
 @media screen and (max-width :480px) {
-h2 {
-font-size :30px;
+html {
+  font-size: 12px;
 }
-h3 {
-font-size :30px;
+h2,h3 {
+  font-size: 20px;
 }
 footer li {
 display :block;
-text-align :right;
+width: 25%;
+margin-left: 65%;
 }
 }
