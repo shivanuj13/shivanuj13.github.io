@@ -97,7 +97,7 @@ footer {
     background-color: #264143;
     color: #f2f2f2;
 }
-footer h3 {
+h3 {
     text-align: right;
     font-size: 2.5rem;
     background-color: #e8f1f1;
@@ -123,7 +123,10 @@ footer li:hover {
 }
 
 @media screen and (max-width :480px) {
-html {
-font-size :12px;
+h2 {
+font-size :30px;
+}
+h3 {
+font-size :30px;
 }
 }
