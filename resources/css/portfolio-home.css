@@ -1,20 +1,123 @@
-#top-title {
+html {
+    font-size: 16px;
+}
+header {
+    background-color: #eddcd9;
+    color: #3f2727;
+    padding: 20px;
     text-align: center;
-    background-color: bisque;
-   
-   
+    
+}
+header:hover {
+    background-color: #f2ebe9;
+}
+header q {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgb(238, 176, 176);
+    font-weight: 900;
 }
 
-#intro {
-    background-color :aquamarine;
+.container {
+   
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 20px;
     
 }
 
-#about-text
-{  
-    border: 2px solid;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+#intro {
+    background-color: #f2ebe9;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+   
+}
+#intro:hover {
+    background-color: #eddcd9;
+}
+#intro img {
+    border-radius: 50%;
+    width: 20%;
+    float: left;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+h2 {
+    text-align: right;
+    font-size: 2.5rem;
+    background-color: #264143;
+    color: #e8f1f1;
+    border-radius: 20px;
+    padding: 10px 40px 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#intro p {
+    font-size: 1.5rem;
+}
 
+#skills {
+    background-color: #f2ebe9;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#skills:hover {
+    background-color: #eddcd9;
+}
+.cont {
+    width: 100%;
+    color: white;
+    background-color: grey;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.html {
+    width: 85%;
+    text-align: right;
+    background-color: #3f2727;
+    padding-right: 20px;
+}
+.css {
+    width: 80%;
+    text-align: right;
+    background-color: #3f2727;
+    padding-right: 20px;
+}
+.js {
+    width: 25%;
+    text-align: right;
+    background-color: #3f2727;
+    padding-right: 20px;
+}
+.php {
+    width: 30%;
+    text-align: right;
+    background-color: #3f2727;
+    padding-right: 20px;
+}
+
+
+footer {
+    background-color: #264143;
+    color: #f2f2f2;
+}
+footer h3 {
+    text-align: right;
+    font-size: 2.5rem;
+    background-color: #e8f1f1;
+    color: black;
+    border-radius: 20px;
+    padding: 10px 40px 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+footer a img {
+width: 60px;
+}
+footer ul {
+    list-style: none;
+    text-align: center;
+}
+footer li {
+    display: inline-block;
+    margin: 0 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+footer li:hover {
+   background-color: #63746c;
 }
