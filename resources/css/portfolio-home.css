@@ -2,6 +2,9 @@ html {
     font-size: 16px;
 }
 
+body {
+    font-family: "Akaya Kanadaka" ,sans-serif;
+}
 #navbar {
     background-color: #3f2727f1;
     padding: 10px 20px 10px 10px;
@@ -87,6 +90,7 @@ h2 {
 }
 #about p {
     font-size: 1.5rem;
+   
 }
 
 #skills {
