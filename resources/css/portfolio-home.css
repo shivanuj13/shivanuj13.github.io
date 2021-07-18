@@ -178,7 +178,7 @@ footer li:hover {
    background-color: #63746c;
 }
 
-@media screen and (max-width :495px) and (min-width :390px) {
+@media screen and (max-width :495px) and (min-width :400px) {
 html {
   font-size: 12px;
 }
@@ -198,7 +198,7 @@ footer a img {
     width: 80%;
 }
 }
-@media screen and (max-width :390px) {
+@media screen and (max-width :400px) {
     html {
         font-size: 12px;
       }
