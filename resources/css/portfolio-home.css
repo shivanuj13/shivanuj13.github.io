@@ -165,7 +165,8 @@ h3 {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 footer a img {
-width: 80px;
+width: 90%;
+display: inline-block;
 }
 footer ul {
     list-style: none;
@@ -173,10 +174,12 @@ footer ul {
 }
 footer li {
     display: inline-block;
+    border-radius: 50%;
+    width: 10%;
     background-color: #e8f1f1;
     padding: 0 5px;
     margin: 5px 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2), 3px 6px 20px 0 rgba(0,0,0,0.19);
 }
 footer li:hover {
    background-color: #63746c;
@@ -192,14 +195,6 @@ html {
 
 h2,h3 {
   font-size: 20px;
-}
-footer li {
-display :block;
-width: 25%;
-margin-left: 65%;
-}
-footer a img {
-    width: 80%;
 }
 }
 @media screen and (max-width :400px) {
@@ -219,13 +214,5 @@ footer a img {
       
       h2,h3 {
         font-size: 20px;
-      }
-      footer li {
-      display :block;
-      width: 25%;
-      margin-left: 65%;
-      }
-      footer a img {
-          width: 80%;
       }
 }
