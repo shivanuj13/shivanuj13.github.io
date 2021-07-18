@@ -161,7 +161,7 @@ h3 {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 footer a img {
-width: 60px;
+width: 80px;
 }
 footer ul {
     list-style: none;
@@ -178,18 +178,50 @@ footer li:hover {
    background-color: #63746c;
 }
 
-@media screen and (max-width :510px) {
+@media screen and (max-width :495px) and (min-width :390px) {
 html {
   font-size: 12px;
 }
-
+#navbar {
+    padding: 10px 10px 10px 5px;
+}
 
 h2,h3 {
   font-size: 20px;
 }
 footer li {
 display :block;
-width: 15%;
+width: 25%;
 margin-left: 65%;
 }
+footer a img {
+    width: 80%;
+}
+}
+@media screen and (max-width :390px) {
+    html {
+        font-size: 12px;
+      }
+    #navbar p {
+        font-size: 12px;
+    }
+    #menu a {
+        font-size: 12px;
+    }
+    
+      #navbar {
+          padding: 10px 10px 10px 5px;
+      }
+      
+      h2,h3 {
+        font-size: 20px;
+      }
+      footer li {
+      display :block;
+      width: 25%;
+      margin-left: 65%;
+      }
+      footer a img {
+          width: 80%;
+      }
 }
