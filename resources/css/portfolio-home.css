@@ -1,16 +1,52 @@
 html {
     font-size: 16px;
 }
-header {
-    background-color: #eddcd9;
-    color: #3f2727;
-    padding: 20px;
-    text-align: center;
+
+#navbar {
+    background-color: #3f2727f1;
+    padding: 10px 20px 10px 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    height: 60px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+   
     
 }
-header:hover {
-    background-color: #f2ebe9;
+#navbar p {
+    color: #e8f1f1;
+    margin: 0 6px;
+    text-align: center;
+    float: left;
+    font-size: 1.5rem;
+    padding-top: 20px;
 }
+#menu a {
+    text-decoration: none;
+    color: #e8f1f1;
+    margin: 0 6px;
+    text-align: center;
+    float: right;
+    font-size: 1.5rem;
+    padding: 20px 5px 20px 0;
+    
+}
+#menu a:hover {
+    text-shadow: 2px 2px 4px rgb(204, 253, 223);
+}
+
+
+header {
+    
+    color: #3f2727;
+    padding: 2px;
+    text-align: center;
+    
+    
+}
+
 header q {
     font-size: 2rem;
     text-shadow: 2px 2px 4px rgb(238, 176, 176);
@@ -25,15 +61,15 @@ header q {
     
 }
 
-#intro {
+#about {
     background-color: #f2ebe9;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
    
 }
-#intro:hover {
+#about:hover {
     background-color: #eddcd9;
 }
-#intro img {
+#about img {
     border-radius: 50%;
     width: 20%;
     float: left;
@@ -49,7 +85,7 @@ h2 {
     padding: 10px 40px 10px 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-#intro p {
+#about p {
     font-size: 1.5rem;
 }
 
@@ -68,28 +104,46 @@ h2 {
 }
 
 .html {
-    width: 85%;
+    width: 70%;
     text-align: right;
     background-color: #3f2727;
-    padding-right: 20px;
+    padding: 5px 20px 5px 0;
 }
 .css {
-    width: 80%;
+    width: 60%;
     text-align: right;
     background-color: #3f2727;
-    padding-right: 20px;
+    padding: 5px 20px 5px 0;
 }
 .js {
+    width: 20%;
+    text-align: right;
+    background-color: #3f2727;
+    padding: 5px 20px 5px 0;
+}
+.php {
     width: 25%;
     text-align: right;
     background-color: #3f2727;
-    padding-right: 20px;
+    padding: 5px 20px 5px 0;
 }
-.php {
-    width: 30%;
+.c {
+    width: 75%;
     text-align: right;
     background-color: #3f2727;
-    padding-right: 20px;
+    padding: 5px 20px 5px 0;
+}
+.cpp {
+    width: 55%;
+    text-align: right;
+    background-color: #3f2727;
+    padding: 5px 20px 5px 0;
+}
+.python {
+    width: 20%;
+    text-align: right;
+    background-color: #3f2727;
+    padding: 5px 20px 5px 0;
 }
 
 
@@ -115,23 +169,27 @@ footer ul {
 }
 footer li {
     display: inline-block;
-    margin: 0 20px;
+    background-color: #e8f1f1;
+    padding: 0 5px;
+    margin: 5px 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 footer li:hover {
    background-color: #63746c;
 }
 
-@media screen and (max-width :480px) {
+@media screen and (max-width :510px) {
 html {
   font-size: 12px;
 }
+
+
 h2,h3 {
   font-size: 20px;
 }
 footer li {
 display :block;
-width: 25%;
+width: 15%;
 margin-left: 65%;
 }
 }
