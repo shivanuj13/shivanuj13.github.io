@@ -1,6 +1,6 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:anuj_kumar/model/data_model.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart';
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Target;
 
 @client
 class HeaderSection extends StatefulComponent {
@@ -74,6 +74,7 @@ class _HeaderState extends State<HeaderSection> {
                 [
                   a(
                     href: data.profile.social.linkedin,
+                    target: Target.blank,
                     classes:
                         'flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-200 text-xs font-medium transition-all border border-white/10 hover:border-violet-500/30 cursor-pointer',
                     [Linkedin(width: 16.px, height: 16.px), text("Let's Connect")],

@@ -20,9 +20,11 @@ const data = DataModel(
     tagline: "Crafting scalable mobile experiences with Server Driven Architecture & Modular SDKs.",
     location: "Bangalore, India",
     email: "anuj.pussgrc@gmail.com",
+    resumeLink: "https://drive.google.com/file/d/1R_P4aCJYRoHktbQo3-bYdydi2xB7xU5p/view?usp=drive_link",
     social: SocialLinks(
       linkedin: "https://linkedin.com/in/shivanuj13",
       github: "https://github.com/shivanuj13",
+      twitter: "https://x.com/return_anuj",
     ),
   ),
   experiences: Experiences(
@@ -84,7 +86,7 @@ const data = DataModel(
     list: [
       Skill(category: "Languages", skills: ["Dart", "Kotlin", "C++", "JavaScript"]),
       Skill(category: "Frameworks", skills: ["Flutter", "Android SDK", "Jetpack Compose", "Node.js"]),
-      Skill(category: "Tools", skills: ["Firebase", "BLoC", "GetX", "Riverpod", "MongoDB", "Git"]),
+      Skill(category: "Tools & Others", skills: ["Firebase", "MongoDB", "Git", "MCP"]),
     ],
   ),
 );
@@ -92,10 +94,12 @@ const data = DataModel(
 class SocialLinks {
   final String linkedin;
   final String github;
+  final String? twitter;
 
   const SocialLinks({
     required this.linkedin,
     required this.github,
+    this.twitter,
   });
 }
 
@@ -105,6 +109,7 @@ class Profile {
   final String tagline;
   final String location;
   final String email;
+  final String resumeLink;
   final SocialLinks social;
 
   const Profile({
@@ -113,6 +118,7 @@ class Profile {
     required this.tagline,
     required this.location,
     required this.email,
+    required this.resumeLink,
     required this.social,
   });
 }

@@ -1,6 +1,6 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:anuj_kumar/model/data_model.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart';
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Target;
 
 // By using the @client annotation this component will be automatically compiled to javascript and mounted
 // on the client. Therefore:
@@ -58,7 +58,8 @@ class About extends StatelessComponent {
               classes: 'flex flex-wrap justify-center lg:justify-start gap-4 pt-4',
               [
                 a(
-                  href: '#',
+                  href: data.profile.social.github,
+                  target: Target.blank,
                   classes:
                       'p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-all border border-white/10 hover:border-violet-500/50 hover:shadow-[0_0_15px_rgba(139,92,246,0.2)]',
                   [
@@ -66,7 +67,8 @@ class About extends StatelessComponent {
                   ],
                 ),
                 a(
-                  href: '#',
+                  href: data.profile.social.twitter ?? '#',
+                  target: Target.blank,
                   classes:
                       'p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-all border border-white/10 hover:border-violet-500/50 hover:shadow-[0_0_15px_rgba(139,92,246,0.2)]',
                   [
@@ -79,7 +81,9 @@ class About extends StatelessComponent {
                       'p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-all border border-white/10 hover:border-violet-500/50 hover:shadow-[0_0_15px_rgba(139,92,246,0.2)]',
                   [Mail()],
                 ),
-                button(
+                a(
+                  href: data.profile.resumeLink,
+                  target: Target.blank,
                   classes:
                       'flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]',
                   [
@@ -116,17 +120,17 @@ class About extends StatelessComponent {
                   classes: 'space-y-4',
                   [
                     for (var stat in [
+                      (label: 'Language', val: 'Dart'),
+                      (label: 'Framework', val: 'Flutter'),
                       (label: 'Architecture', val: 'Server Driven UI'),
-                      (label: 'State Management', val: 'Flutter BLoC'),
                       (label: 'Learning', val: 'Jaspr'),
-                      (label: 'Backend', val: 'Firebase & Node'),
                     ])
                       li(
-                        classes: 'flex flex-col md:flex-row md:items-center md:justify-between text-sm border-b border-white/5 pb-3 last:border-0',
+                        classes:
+                            'flex flex-col md:flex-row md:items-center md:justify-between text-sm border-b border-white/5 pb-3 last:border-0',
                         [
                           span([text(stat.label)], classes: 'text-gray-500 mb-1 md:mb-0'),
-                          span([text(stat.val)],
-                              classes: 'text-gray-200 font-medium'),
+                          span([text(stat.val)], classes: 'text-gray-200 font-medium'),
                         ],
                       ),
                   ],
