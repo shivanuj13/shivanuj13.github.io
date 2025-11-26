@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll margin for all sections */
+section {
+  scroll-margin-top: 4rem;
+}
+
+/* Cursor pointer on clickable nav links */
+nav a {
+  cursor: pointer;
+}
