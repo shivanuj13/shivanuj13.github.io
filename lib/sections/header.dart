@@ -82,65 +82,89 @@ class _HeaderState extends State<HeaderSection> {
                 ],
               ),
 
-              // Mobile menu button
-              button(
-                onClick: toggleMobileMenu,
-                classes: 'md:hidden text-white p-2 cursor-pointer text-2xl hover:opacity-80 transition-opacity',
-                [text(isMobileMenuOpen ? '✕' : '☰')],
+              div(
+                classes: 'md:hidden items-center gap-4',
+                [
+                  a(
+                    href: data.profile.social.linkedin,
+                    target: Target.blank,
+                    classes:
+                        'flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-200 text-xs font-medium transition-all border border-white/10 hover:border-violet-500/30 cursor-pointer',
+                    [Linkedin(width: 16.px, height: 16.px), text("Let's Connect")],
+                  ),
+                ],
               ),
+
+              // Mobile menu button
+              // button(
+              //   onClick: toggleMobileMenu,
+              //   classes: 'md:hidden text-white p-2 cursor-pointer text-2xl hover:opacity-80 transition-opacity',
+              //   [
+              //     isMobileMenuOpen
+              //         ? X(
+              //             styles: Styles(height: 24.px, width: 24.px),
+              //           )
+              //         : Menu(
+              //             styles: Styles(height: 24.px, width: 24.px),
+              //           ),
+              //   ],
+              // ),
             ],
           ),
         ],
       ),
 
       // Mobile Menu
-      if (isMobileMenuOpen)
-        div(
-          classes: 'fixed inset-0 top-16 z-50 bg-[#0B0B0E] md:hidden flex flex-col',
-          [
-            div(
-              classes: 'flex flex-col gap-0 flex-1',
-              [
-                a(
-                  href: '#about',
-                  onClick: toggleMobileMenu,
-                  classes:
-                      'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-                  [text('About')],
-                ),
-                a(
-                  href: '#experience',
-                  classes:
-                      'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-                  [text('Experience')],
-                ),
-                a(
-                  href: '#projects',
-                  classes:
-                      'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-                  [text('Projects')],
-                ),
-                a(
-                  href: '#skills',
-                  classes:
-                      'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-                  [text('Skills')],
-                ),
-              ],
-            ),
-            div(
-              classes: 'p-6 border-t border-white/10',
-              [
-                a(
-                  href: data.profile.social.linkedin,
-                  classes:
-                      'block w-full px-4 py-3 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-center font-semibold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all',
-                  [text("Let's Connect")],
-                ),
-              ],
-            ),
-          ],
-        ),
+      // if (isMobileMenuOpen)
+      // div(
+      //   classes: 'fixed inset-x-0 top-16 z-50 bg-[#0B0B0E] md:hidden flex flex-col h-1/2 min-h-[50vh]',
+      //   [
+      //     div(
+      //       classes: 'flex flex-col gap-0 flex-1',
+      //       [
+      //         a(
+      //           href: '#about',
+      //           onClick: toggleMobileMenu,
+      //           classes:
+      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
+      //           [text('About')],
+      //         ),
+      //         a(
+      //           href: '#experience',
+      //           onClick: toggleMobileMenu,
+      //           classes:
+      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
+      //           [text('Experience')],
+      //         ),
+      //         a(
+      //           href: '#projects',
+      //           onClick: toggleMobileMenu,
+      //           classes:
+      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
+      //           [text('Projects')],
+      //         ),
+      //         a(
+      //           href: '#skills',
+      //           onClick: toggleMobileMenu,
+      //           classes:
+      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
+      //           [text('Skills')],
+      //         ),
+      //       ],
+      //     ),
+      //     div(
+      //       classes: 'p-6 border-t border-white/10',
+      //       [
+      //         a(
+      //           href: data.profile.social.linkedin,
+      //           classes:
+      //               'block w-full px-4 py-3 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-center font-semibold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all',
+      //           [text("Let's Connect")],
+      //         ),
+      //       ],
+      //     ),
+      //   ],
+      // ),
     ]);
   }
 }
