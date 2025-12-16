@@ -68,9 +68,17 @@ const data = DataModel(
   projects: Projects(
     list: [
       Project(
+        title: "Easy Alias CLI",
+        tech: "Dart CLI",
+        tinyDesc: "Productivity",
+        link: "https://github.com/shivanuj13/easy_alias",
+        desc:
+            "A simple Dart CLI tool to manage shell aliases on macOS and Linux. Create, list, update, activate, and deactivate your custom command shortcuts easily with a colorful, interactive menu.",
+      ),
+      Project(
         title: "TinyExpr",
         tech: "Dart Package",
-        stats: "500+ Downloads",
+        tinyDesc: "500+ Downloads",
         link: "https://pub.dev/packages/tiny_expr",
         desc: "Math expression evaluator ported from C. Supports variables, functions & precedence.",
       ),
@@ -158,14 +166,14 @@ class Project {
   final String tech;
   final String link;
   final String desc;
-  final String? stats;
+  final String? tinyDesc;
 
   const Project({
     required this.title,
     required this.tech,
     required this.link,
     required this.desc,
-    this.stats,
+    this.tinyDesc,
   });
 }
 

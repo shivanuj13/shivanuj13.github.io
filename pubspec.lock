@@ -325,18 +325,18 @@ packages:
     dependency: "direct main"
     description:
       name: jaspr
-      sha256: "366975ca6e6b138772444a7c09f4287ec4332e6b9178688647500ecc2cb158f5"
+      sha256: ae4e972882ef04fee368a70ae8381b266110805020d95ca19940f9aaa1a7febb
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.7"
+    version: "0.22.0"
   jaspr_builder:
     dependency: "direct dev"
     description:
       name: jaspr_builder
-      sha256: "7d3e309ef251a78fe398c290524661e407c8ccd3fdcef0d81739f28dcf96c577"
+      sha256: "61f571eeb9a6f3bb9c64e3e77d55377d7a526d2159c7819e64df233ddc4109ba"
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.7"
+    version: "0.22.0"
   jaspr_lints:
     dependency: "direct dev"
     description:
@@ -349,18 +349,18 @@ packages:
     dependency: "direct main"
     description:
       name: jaspr_lucide
-      sha256: "9a4125e44f276ccbafb2fd4702f8a91cd07d591947603ebe1d509695dcd6af9e"
+      sha256: "547d72e491b61b287158c773541e390837efd7615db14e345fd2487de57873af"
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.0"
+    version: "0.20.0"
   jaspr_router:
     dependency: "direct main"
     description:
       name: jaspr_router
-      sha256: "6b02adc5212816e548f996e8cfc4156e689e4642611862b441fc840d7267673a"
+      sha256: a82899af7e1717ef1643889a00a9f1a738983b58a7db13f1512a0066056d6a1e
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.0"
+    version: "0.8.1"
   jaspr_tailwind:
     dependency: "direct dev"
     description:

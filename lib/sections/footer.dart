@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr_lucide/jaspr_lucide.dart';
@@ -17,11 +18,11 @@ class FooterSection extends StatelessComponent {
           a(
             href: 'mailto:${data.profile.email}',
             classes: 'hover:text-violet-400 transition-colors flex items-center gap-2',
-            [Mail(height: 12.px, width: 12.px), text(data.profile.email)],
+            [Mail(height: 12.px, width: 12.px), Component.text(data.profile.email)],
           ),
           div(classes: 'hidden md:block w-1 h-1 rounded-full bg-white/20', []),
-          div(classes: 'text-gray-500 text-sm text-center md:text-left', [text('© $year Anuj Kumar.')]),
-          // div(classes: 'flex items-center gap-2', [text(data.profile.phone)]),
+          div(classes: 'text-gray-500 text-sm text-center md:text-left', [Component.text('© $year Anuj Kumar')]),
+          // div(classes: 'flex items-center gap-2', [Component.text(data.profile.phone)]),
         ]),
       ]),
     ]);

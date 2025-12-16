@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr_lucide/jaspr_lucide.dart' hide Target;
@@ -35,9 +36,9 @@ class _HeaderState extends State<HeaderSection> {
                   div(
                     classes:
                         'w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_15px_rgba(139,92,246,0.3)]',
-                    [text('AK')],
+                    [Component.text('AK')],
                   ),
-                  text('Anuj Kumar'),
+                  Component.text('Anuj Kumar'),
                 ],
               ),
 
@@ -48,22 +49,22 @@ class _HeaderState extends State<HeaderSection> {
                   a(
                     href: '#about',
                     classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [text('About')],
+                    [Component.text('About')],
                   ),
                   a(
                     href: '#experience',
                     classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [text('Experience')],
+                    [Component.text('Experience')],
                   ),
                   a(
                     href: '#projects',
                     classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [text('Projects')],
+                    [Component.text('Projects')],
                   ),
                   a(
                     href: '#skills',
                     classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [text('Skills')],
+                    [Component.text('Skills')],
                   ),
                 ],
               ),
@@ -77,7 +78,7 @@ class _HeaderState extends State<HeaderSection> {
                     target: Target.blank,
                     classes:
                         'flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-200 text-xs font-medium transition-all border border-white/10 hover:border-violet-500/30 cursor-pointer',
-                    [Linkedin(width: 16.px, height: 16.px), text("Let's Connect")],
+                    [Linkedin(width: 16.px, height: 16.px), Component.text("Let's Connect")],
                   ),
                 ],
               ),
@@ -90,7 +91,7 @@ class _HeaderState extends State<HeaderSection> {
                     target: Target.blank,
                     classes:
                         'flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-200 text-xs font-medium transition-all border border-white/10 hover:border-violet-500/30 cursor-pointer',
-                    [Linkedin(width: 16.px, height: 16.px), text("Let's Connect")],
+                    [Linkedin(width: 16.px, height: 16.px), Component.text("Let's Connect")],
                   ),
                 ],
               ),
@@ -127,28 +128,28 @@ class _HeaderState extends State<HeaderSection> {
       //           onClick: toggleMobileMenu,
       //           classes:
       //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [text('About')],
+      //           [Component.text('About')],
       //         ),
       //         a(
       //           href: '#experience',
       //           onClick: toggleMobileMenu,
       //           classes:
       //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [text('Experience')],
+      //           [Component.text('Experience')],
       //         ),
       //         a(
       //           href: '#projects',
       //           onClick: toggleMobileMenu,
       //           classes:
       //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [text('Projects')],
+      //           [Component.text('Projects')],
       //         ),
       //         a(
       //           href: '#skills',
       //           onClick: toggleMobileMenu,
       //           classes:
       //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [text('Skills')],
+      //           [Component.text('Skills')],
       //         ),
       //       ],
       //     ),
@@ -159,7 +160,7 @@ class _HeaderState extends State<HeaderSection> {
       //           href: data.profile.social.linkedin,
       //           classes:
       //               'block w-full px-4 py-3 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-center font-semibold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all',
-      //           [text("Let's Connect")],
+      //           [Component.text("Let's Connect")],
       //         ),
       //       ],
       //     ),

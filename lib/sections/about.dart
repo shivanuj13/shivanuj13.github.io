@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr_lucide/jaspr_lucide.dart' hide Target;
@@ -28,19 +29,19 @@ class About extends StatelessComponent {
               [
                 // small mobile icon placeholder
                 Smartphone(width: 14.px, height: 14.px),
-                text('Mobile Application Developer'),
+                Component.text('Mobile Application Developer'),
               ],
             ),
 
             h1(
               classes: 'text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]',
               [
-                text('Building scalable '),
+                Component.text('Building scalable '),
                 br(),
                 span(
                   classes:
                       'text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 drop-shadow-[0_0_10px_rgba(168,85,247,0.2)]',
-                  [text('mobile experiences.')],
+                  [Component.text('mobile experiences.')],
                 ),
               ],
             ),
@@ -48,7 +49,7 @@ class About extends StatelessComponent {
             p(
               classes: 'text-lg md:text-xl text-gray-400 max-w-xl leading-relaxed mx-auto lg:mx-0',
               [
-                text(
+                Component.text(
                   '${data.profile.tagline} Currently engineering high-performance fintech solutions at PowerUp Money.',
                 ),
               ],
@@ -88,7 +89,7 @@ class About extends StatelessComponent {
                       'flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]',
                   [
                     Download(height: 20.px, width: 20.px),
-                    text('Resume'),
+                    Component.text('Resume'),
                   ],
                 ),
               ],
@@ -113,7 +114,7 @@ class About extends StatelessComponent {
                   classes: 'text-white font-semibold mb-6 flex items-center gap-2',
                   [
                     SquareTerminal(),
-                    text('Core Expertise'),
+                    Component.text('Core Expertise'),
                   ],
                 ),
                 ul(
@@ -129,8 +130,8 @@ class About extends StatelessComponent {
                         classes:
                             'flex flex-col md:flex-row md:items-center md:justify-between text-sm border-b border-white/5 pb-3 last:border-0',
                         [
-                          span([text(stat.label)], classes: 'text-gray-500 mb-1 md:mb-0'),
-                          span([text(stat.val)], classes: 'text-gray-200 font-medium'),
+                          span([Component.text(stat.label)], classes: 'text-gray-500 mb-1 md:mb-0'),
+                          span([Component.text(stat.val)], classes: 'text-gray-200 font-medium'),
                         ],
                       ),
                   ],

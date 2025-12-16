@@ -1,4 +1,5 @@
 import 'package:anuj_kumar/constants/theme.dart';
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr_lucide/jaspr_lucide.dart';
@@ -12,7 +13,7 @@ class ProjectsSection extends StatelessComponent {
     return section(id: 'projects', classes: 'py-20 px-6 max-w-6xl mx-auto', [
       h2(classes: 'text-2xl md:text-3xl font-bold text-white mb-12 flex items-center gap-3', [
         Code(styles: Styles(color: violet600)),
-        text('Featured Projects'),
+        Component.text('Featured Projects'),
       ]),
 
       div(classes: 'grid grid-cols-1 md:grid-cols-2 gap-6', [
@@ -27,18 +28,18 @@ class ProjectsSection extends StatelessComponent {
                   h3(
                     classes:
                         'text-lg md:text-xl font-bold text-gray-200 group-hover:text-violet-300 transition-colors flex items-center gap-2',
-                    [text(proj.title)],
+                    [Component.text(proj.title)],
                   ),
-                  p(classes: 'text-xs text-fuchsia-400/80 font-mono mt-1', [text(proj.tech)]),
+                  p(classes: 'text-xs text-fuchsia-400/80 font-mono mt-1', [Component.text(proj.tech)]),
                 ]),
-                if (proj.stats != null)
+                if (proj.tinyDesc != null)
                   span(
                     classes:
                         'text-xs font-medium px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 whitespace-nowrap',
-                    [text(proj.stats!)],
+                    [Component.text(proj.tinyDesc!)],
                   ),
               ]),
-              p(classes: 'text-gray-400 text-sm leading-relaxed flex-grow', [text(proj.desc)]),
+              p(classes: 'text-gray-400 text-sm leading-relaxed flex-grow', [Component.text(proj.desc)]),
             ],
           ),
       ]),
