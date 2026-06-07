@@ -1,171 +1,139 @@
+import 'package:anuj_kumar/constants/theme.dart';
+import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr_lucide/jaspr_lucide.dart' hide Target;
 
-@client
-class HeaderSection extends StatefulComponent {
+class HeaderSection extends StatelessComponent {
   const HeaderSection({super.key});
-
-  @override
-  State<HeaderSection> createState() => _HeaderState();
-}
-
-class _HeaderState extends State<HeaderSection> {
-  bool isMobileMenuOpen = false;
-  void toggleMobileMenu() {
-    setState(() {
-      isMobileMenuOpen = !isMobileMenuOpen;
-    });
-  }
 
   @override
   Component build(BuildContext context) {
     return div([
-      // Header Navigation
       nav(
-        classes: 'fixed top-0 w-full z-50 bg-[#0B0B0E]/80 backdrop-blur-xl border-b border-white/5',
+        classes:
+            'fixed top-0 w-full z-50 bg-[var(--token-header-bg)] backdrop-blur-[12px] border-b border-brand',
         [
           div(
-            classes: 'max-w-6xl mx-auto px-6 h-16 flex items-center justify-between',
+            classes: 'max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between',
             [
-              // Brand
-              div(
-                classes: 'text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2',
+              a(
+                href: '#about',
+                classes: 'flex items-center gap-3 transition-editorial-fast hover:opacity-80',
                 [
                   div(
                     classes:
-                        'w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_15px_rgba(139,92,246,0.3)]',
+                        'w-9 h-9 rounded-lg border border-bronze flex items-center justify-center text-bronze font-display font-semibold text-xs tracking-[0.12em]',
                     [Component.text('AK')],
                   ),
-                  Component.text('Anuj Kumar'),
+                  span(
+                    classes: 'hidden sm:inline text-primary font-display font-medium text-sm tracking-[0.06em]',
+                    [Component.text(data.profile.name)],
+                  ),
                 ],
               ),
-
-              // Desktop Nav
               div(
                 classes: 'hidden md:flex gap-8 text-sm font-medium',
                 [
-                  a(
-                    href: '#about',
-                    classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [Component.text('About')],
-                  ),
-                  a(
-                    href: '#experience',
-                    classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [Component.text('Experience')],
-                  ),
-                  a(
-                    href: '#projects',
-                    classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [Component.text('Projects')],
-                  ),
-                  a(
-                    href: '#skills',
-                    classes: 'cursor-pointer transition-all duration-300 text-gray-400 hover:text-violet-400',
-                    [Component.text('Skills')],
-                  ),
+                  _navLink('#about', 'About'),
+                  _navLink('#experience', 'Experience'),
+                  _navLink('#projects', 'Projects'),
+                  _navLink('#contributions', 'Contribution'),
+                  _navLink('#skills', 'Skills'),
                 ],
               ),
-
-              // Right actions (Desktop)
               div(
-                classes: 'hidden md:flex items-center gap-4',
+                classes: 'flex items-center gap-3',
                 [
+                  button(
+                    id: 'theme-toggle',
+                    classes:
+                        'p-2 rounded-lg border border-brand text-muted transition-editorial-fast hover:text-bronze hover:border-bronze/40 cursor-pointer',
+                    attributes: {
+                      'type': 'button',
+                      'aria-label': 'Toggle color theme',
+                    },
+                    [
+                      div(classes: 'theme-icon-sun', [
+                        Sun(styles: Styles(width: 18.px, height: 18.px)),
+                      ]),
+                      div(classes: 'theme-icon-moon', [
+                        Moon(styles: Styles(width: 18.px, height: 18.px)),
+                      ]),
+                    ],
+                  ),
                   a(
                     href: data.profile.social.linkedin,
                     target: Target.blank,
                     classes:
-                        'flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-200 text-xs font-medium transition-all border border-white/10 hover:border-violet-500/30 cursor-pointer',
+                        'hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-brand text-muted text-xs font-medium transition-editorial-fast hover:text-bronze hover:border-bronze/40 cursor-pointer',
                     [Linkedin(width: 16.px, height: 16.px), Component.text("Let's Connect")],
                   ),
-                ],
-              ),
-
-              div(
-                classes: 'md:hidden items-center gap-4',
-                [
-                  a(
-                    href: data.profile.social.linkedin,
-                    target: Target.blank,
+                  button(
+                    id: 'mobile-menu-toggle',
                     classes:
-                        'flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-200 text-xs font-medium transition-all border border-white/10 hover:border-violet-500/30 cursor-pointer',
-                    [Linkedin(width: 16.px, height: 16.px), Component.text("Let's Connect")],
+                        'md:hidden p-2 rounded-lg border border-brand text-muted transition-editorial-fast hover:text-bronze cursor-pointer',
+                    attributes: {
+                      'type': 'button',
+                      'aria-label': 'Toggle menu',
+                      'aria-expanded': 'false',
+                      'aria-controls': 'mobile-menu',
+                    },
+                    [
+                      div(classes: 'mobile-menu-icon-open', [
+                        Menu(styles: Styles(height: 20.px, width: 20.px)),
+                      ]),
+                      div(classes: 'mobile-menu-icon-close', [
+                        X(styles: Styles(height: 20.px, width: 20.px)),
+                      ]),
+                    ],
                   ),
                 ],
               ),
-
-              // Mobile menu button
-              // button(
-              //   onClick: toggleMobileMenu,
-              //   classes: 'md:hidden text-white p-2 cursor-pointer text-2xl hover:opacity-80 transition-opacity',
-              //   [
-              //     isMobileMenuOpen
-              //         ? X(
-              //             styles: Styles(height: 24.px, width: 24.px),
-              //           )
-              //         : Menu(
-              //             styles: Styles(height: 24.px, width: 24.px),
-              //           ),
-              //   ],
-              // ),
             ],
           ),
         ],
       ),
-
-      // Mobile Menu
-      // if (isMobileMenuOpen)
-      // div(
-      //   classes: 'fixed inset-x-0 top-16 z-50 bg-[#0B0B0E] md:hidden flex flex-col h-1/2 min-h-[50vh]',
-      //   [
-      //     div(
-      //       classes: 'flex flex-col gap-0 flex-1',
-      //       [
-      //         a(
-      //           href: '#about',
-      //           onClick: toggleMobileMenu,
-      //           classes:
-      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [Component.text('About')],
-      //         ),
-      //         a(
-      //           href: '#experience',
-      //           onClick: toggleMobileMenu,
-      //           classes:
-      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [Component.text('Experience')],
-      //         ),
-      //         a(
-      //           href: '#projects',
-      //           onClick: toggleMobileMenu,
-      //           classes:
-      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [Component.text('Projects')],
-      //         ),
-      //         a(
-      //           href: '#skills',
-      //           onClick: toggleMobileMenu,
-      //           classes:
-      //               'px-6 py-6 text-lg font-semibold text-white hover:bg-white/5 transition-colors border-b border-white/10',
-      //           [Component.text('Skills')],
-      //         ),
-      //       ],
-      //     ),
-      //     div(
-      //       classes: 'p-6 border-t border-white/10',
-      //       [
-      //         a(
-      //           href: data.profile.social.linkedin,
-      //           classes:
-      //               'block w-full px-4 py-3 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-center font-semibold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all',
-      //           [Component.text("Let's Connect")],
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
+      div(
+        id: 'mobile-menu',
+        classes:
+            'mobile-menu-panel fixed inset-x-0 top-16 z-50 md:hidden bg-surface border-b border-brand flex flex-col shadow-[0_8px_24px_var(--token-shadow)]',
+        [
+          _mobileLink('#about', 'About'),
+          _mobileLink('#experience', 'Experience'),
+          _mobileLink('#projects', 'Projects'),
+          _mobileLink('#contributions', 'Contribution'),
+          _mobileLink('#skills', 'Skills'),
+          div(
+            classes: 'p-6 border-t border-brand',
+            [
+              a(
+                href: data.profile.social.linkedin,
+                target: Target.blank,
+                classes: '$kBtnSecondary w-full text-center',
+                [Component.text("Let's Connect")],
+              ),
+            ],
+          ),
+        ],
+      ),
     ]);
+  }
+
+  Component _navLink(String href, String label) {
+    return a(
+      href: href,
+      classes: 'text-muted transition-editorial-fast hover:text-bronze',
+      [Component.text(label)],
+    );
+  }
+
+  Component _mobileLink(String href, String label) {
+    return a(
+      href: href,
+      classes:
+          'px-6 py-5 text-base font-medium text-primary hover:text-bronze transition-editorial-fast border-b border-brand',
+      [Component.text(label)],
+    );
   }
 }

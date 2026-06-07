@@ -1,6 +1,8 @@
+import 'package:anuj_kumar/components/ui/section_heading.dart';
+import 'package:anuj_kumar/constants/theme.dart';
+import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:anuj_kumar/model/data_model.dart';
 
 @client
 class SkillsSection extends StatelessComponent {
@@ -8,17 +10,31 @@ class SkillsSection extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return section(id: 'skills', classes: 'py-12 md:py-20 px-6 max-w-6xl mx-auto bg-gradient-to-b from-white/[0.02] to-transparent rounded-3xl my-10 md:my-20 border border-white/5 backdrop-blur-sm', [
-      div(classes: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12', [
-        for (var entry in data.skills.list)
-          div([ 
-            h3(classes: 'text-lg font-semibold text-white mb-6 flex items-center gap-2 border-b border-white/10 pb-3', [Component.text(entry.category)]),
-            div(classes: 'flex flex-wrap gap-2', [
-              for (var skill in entry.skills)
-                span(classes: 'px-3 py-1.5 text-sm rounded-lg bg-[#121217] border border-white/10 text-gray-400 hover:text-white hover:border-violet-500/40 hover:shadow-[0_0_10px_rgba(139,92,246,0.15)] transition-all cursor-default', [Component.text(skill)]),
-            ]),
-          ]),
-      ]),
-    ]);
+    return section(
+      id: 'skills',
+      classes: '$kContainer $kSectionSpacing',
+      [
+        const SectionHeading(title: 'Expertise'),
+        div(classes: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8', [
+          for (var entry in data.skills.list)
+            div(
+              classes: '$kCardSurface p-8 flex flex-col',
+              [
+                h3(
+                  classes:
+                      'font-display text-xl font-medium text-primary border-b border-brand pb-4 mb-4',
+                  [Component.text(entry.category)],
+                ),
+                p(classes: 'text-muted text-sm leading-[1.7] mb-6 flex-grow', [
+                  Component.text(entry.description),
+                ]),
+                p(classes: 'text-sm text-muted leading-relaxed', [
+                  Component.text(entry.skills.join(' · ')),
+                ]),
+              ],
+            ),
+        ]),
+      ],
+    );
   }
 }

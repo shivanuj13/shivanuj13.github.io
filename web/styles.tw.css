@@ -1,16 +1,288 @@
 @import "tailwindcss";
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
+/* ── Light theme (default) ── */
+:root {
+  --token-bg: #f6f2ec;
+  --token-surface: #ffffff;
+  --token-surface-elevated: #faf7f2;
+  --token-text: #1f1b18;
+  --token-text-muted: #62584e;
+  --token-bronze: #8a5b2a;
+  --token-bronze-bright: #b07a42;
+  --token-bronze-dark: #6e441d;
+  --token-border: rgba(138, 91, 42, 0.18);
+  --token-header-bg: rgba(246, 242, 236, 0.85);
+  --token-shadow: rgba(0, 0, 0, 0.12);
+  --token-gradient-bronze: linear-gradient(135deg, #b07a42 0%, #8a5b2a 55%, #6e441d 100%);
+  --token-mesh-glow: rgba(138, 91, 42, 0.07);
+  --token-mesh-dot: rgba(138, 91, 42, 0.055);
+  --token-mesh-line: rgba(138, 91, 42, 0.035);
+  --token-btn-primary-bg: var(--token-bronze);
+  --token-btn-primary-text: #fffbf5;
+  --token-btn-primary-border: rgba(110, 68, 29, 0.3);
+  --token-btn-primary-shadow: 0 1px 2px rgba(110, 68, 29, 0.1);
+  --token-btn-primary-shadow-hover: 0 4px 14px rgba(110, 68, 29, 0.22);
 }
 
-/* Scroll margin for all sections */
-section {
-  scroll-margin-top: 4rem;
+/* ── Explicit light override ── */
+html.light,
+html[data-theme="light"] {
+  --token-bg: #f6f2ec;
+  --token-surface: #ffffff;
+  --token-surface-elevated: #faf7f2;
+  --token-text: #1f1b18;
+  --token-text-muted: #62584e;
+  --token-bronze: #8a5b2a;
+  --token-bronze-bright: #b07a42;
+  --token-bronze-dark: #6e441d;
+  --token-border: rgba(138, 91, 42, 0.18);
+  --token-header-bg: rgba(246, 242, 236, 0.85);
+  --token-shadow: rgba(0, 0, 0, 0.12);
+  --token-gradient-bronze: linear-gradient(135deg, #b07a42 0%, #8a5b2a 55%, #6e441d 100%);
+  --token-mesh-glow: rgba(138, 91, 42, 0.07);
+  --token-mesh-dot: rgba(138, 91, 42, 0.055);
+  --token-mesh-line: rgba(138, 91, 42, 0.035);
+  color-scheme: light;
 }
 
-/* Cursor pointer on clickable nav links */
-nav a {
-  cursor: pointer;
+/* ── Explicit dark override ── */
+html.dark,
+html[data-theme="dark"] {
+  --token-bg: #111111;
+  --token-surface: #171717;
+  --token-surface-elevated: #1d1d1d;
+  --token-text: #ebe7e0;
+  --token-text-muted: #a89f95;
+  --token-bronze: #b07a42;
+  --token-bronze-bright: #d29a5e;
+  --token-bronze-dark: #8a5b2a;
+  --token-border: rgba(176, 122, 66, 0.18);
+  --token-header-bg: rgba(17, 17, 17, 0.85);
+  --token-shadow: rgba(0, 0, 0, 0.25);
+  --token-gradient-bronze: linear-gradient(135deg, #d29a5e 0%, #b07a42 55%, #8a5b2a 100%);
+  --token-mesh-glow: rgba(176, 122, 66, 0.05);
+  --token-mesh-dot: rgba(176, 122, 66, 0.05);
+  --token-mesh-line: rgba(176, 122, 66, 0.02);
+  --token-btn-primary-bg: var(--token-gradient-bronze);
+  --token-btn-primary-text: #1f1b18;
+  --token-btn-primary-border: transparent;
+  --token-btn-primary-shadow: none;
+  --token-btn-primary-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color-scheme: dark;
+}
+
+/* System preference when no explicit class override */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    --token-bg: #111111;
+    --token-surface: #171717;
+    --token-surface-elevated: #1d1d1d;
+    --token-text: #ebe7e0;
+    --token-text-muted: #a89f95;
+    --token-bronze: #b07a42;
+    --token-bronze-bright: #d29a5e;
+    --token-bronze-dark: #8a5b2a;
+    --token-border: rgba(176, 122, 66, 0.18);
+    --token-header-bg: rgba(17, 17, 17, 0.85);
+    --token-shadow: rgba(0, 0, 0, 0.25);
+    --token-gradient-bronze: linear-gradient(135deg, #d29a5e 0%, #b07a42 55%, #8a5b2a 100%);
+    --token-mesh-glow: rgba(176, 122, 66, 0.05);
+    --token-mesh-dot: rgba(176, 122, 66, 0.05);
+    --token-mesh-line: rgba(176, 122, 66, 0.02);
+    --token-btn-primary-bg: var(--token-gradient-bronze);
+    --token-btn-primary-text: #1f1b18;
+    --token-btn-primary-border: transparent;
+    --token-btn-primary-shadow: none;
+    --token-btn-primary-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--token-bg);
+  --color-surface: var(--token-surface);
+  --color-surface-elevated: var(--token-surface-elevated);
+  --color-primary: var(--token-text);
+  --color-muted: var(--token-text-muted);
+  --color-bronze: var(--token-bronze);
+  --color-bronze-bright: var(--token-bronze-bright);
+  --color-bronze-dark: var(--token-bronze-dark);
+  --color-border: var(--token-border);
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--token-text);
+    background-color: var(--token-bg);
+  }
+
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  nav a {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--token-bronze-bright);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .bg-editorial {
+    background-color: var(--token-bg);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, var(--token-mesh-glow), transparent 70%),
+      radial-gradient(circle, var(--token-mesh-dot) 1px, transparent 1px),
+      linear-gradient(135deg, var(--token-mesh-line) 25%, transparent 25%),
+      linear-gradient(225deg, var(--token-mesh-line) 25%, transparent 25%);
+    background-size: 100% 100%, 24px 24px, 48px 48px, 48px 48px;
+  }
+
+  .bg-bronze-gradient {
+    background-image: var(--token-gradient-bronze);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    color: var(--token-btn-primary-text);
+    background: var(--token-btn-primary-bg);
+    border: 1px solid var(--token-btn-primary-border);
+    box-shadow: var(--token-btn-primary-shadow);
+    transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--token-btn-primary-shadow-hover);
+  }
+
+  .icon-x {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: currentColor;
+    mask: url(/images/x.svg) center / contain no-repeat;
+    -webkit-mask: url(/images/x.svg) center / contain no-repeat;
+  }
+
+  .text-display-hero {
+    font-size: clamp(3rem, 7vw, 5.25rem);
+    line-height: 1.1;
+  }
+
+  .text-display-section {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .border-brand {
+    border-color: var(--token-border);
+  }
+
+  .ease-editorial {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .transition-editorial {
+    transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .transition-editorial-fast {
+    transition-property: color, background-color, border-color, opacity;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .animate-hero-enter {
+    animation: hero-enter 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero-enter {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Theme toggle icons — sun shown in dark mode, moon in light mode */
+  .theme-icon-sun {
+    display: none;
+  }
+  .theme-icon-moon {
+    display: block;
+  }
+  html.dark .theme-icon-sun {
+    display: block;
+  }
+  html.dark .theme-icon-moon {
+    display: none;
+  }
+  html.light .theme-icon-sun {
+    display: none;
+  }
+  html.light .theme-icon-moon {
+    display: block;
+  }
+
+  /* Mobile menu — toggled via inline script */
+  .mobile-menu-panel {
+    display: none;
+  }
+  .mobile-menu-panel.is-open {
+    display: flex;
+  }
+  .mobile-menu-icon-close {
+    display: none;
+  }
+  #mobile-menu-toggle[aria-expanded="true"] .mobile-menu-icon-open {
+    display: none;
+  }
+  #mobile-menu-toggle[aria-expanded="true"] .mobile-menu-icon-close {
+    display: block;
+  }
 }

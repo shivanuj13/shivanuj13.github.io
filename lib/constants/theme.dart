@@ -1,30 +1,40 @@
 import 'package:jaspr/dom.dart';
 
-// As your css styles are defined using just Dart, you can simply
-// use global variables or methods for common things like colors.
-const primaryColor = Color('#01589B');
+// Bronze palette — aligned with CSS tokens (for Lucide Styles only)
+const bronze = Color('#b07a42');
+const bronzeBright = Color('#d29a5e');
+const bronzeDark = Color('#8a5b2a');
 
-// Background Colors
-const primaryBackground = Color('#0B0B0E');
-const footerBackground = Color('#050507');
-const cardBackground = Color('#050507');
-const chipBackGround = Color('#1A1A20');
+// Layout
+const kContainer = 'max-w-[1200px] mx-auto px-6 md:px-8';
 
-// Primary Theme Acents
-const cyan400 = Color('#22d3ee');
-const cyan500 = Color('#06b6d4');
-const cyan600 = Color('#0891b2');
-const cyan950 = Color('#083344');
-const violet500 = Color('#083344');
-const violet600 = Color('#8b5cf6');
-const blue500 = Color('#3b82f6');
-const blue600 = Color('#2563eb');
-const fushia600 = Color('#c026d3');
+// Hero clears the fixed header; bottom matches half of kSectionSpacing
+const kHeroSpacing = 'pt-32 md:pt-36 pb-16 md:pb-20';
 
-// Text and other
-const white = Color('#FFFFFF');
-const grey200 = Color('#e5e7eb');
-const grey300 = Color('#d1d5db');
-const grey400 = Color('#9ca3af');
-const grey500 = Color('#6b7280');
-const emerald400 = Color('#34d399');
+// Uniform gap between sections = bottom + top = 32/40 spacing units (128px / 160px)
+const kSectionSpacing = 'py-6 md:py-16';
+
+// Space between a section title and its content
+const kSectionTitleGap = 'mb-8 md:mb-10';
+
+// Footer top aligns with section rhythm; bottom is slightly tighter
+const kFooterSpacing = 'pt-16 md:pt-20 pb-12 md:pb-16';
+
+// Surfaces
+const kCardSurface = 'bg-surface border border-brand rounded-2xl';
+const kCardElevated = 'bg-surface-elevated border border-brand rounded-2xl';
+
+// Buttons
+const kBtnPrimary = 'btn-primary';
+const kBtnSecondary =
+    'inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-transparent border border-bronze text-bronze font-medium transition-editorial hover:-translate-y-0.5 hover:bg-bronze/5';
+const kBtnIcon =
+    'p-3 rounded-xl bg-transparent border border-brand text-muted transition-editorial-fast hover:text-bronze hover:border-bronze/40';
+
+// Typography
+const kWordmark = 'uppercase tracking-[0.12em] text-bronze font-display font-medium text-sm';
+const kSectionTitle = 'font-display text-display-section font-medium text-primary';
+const kLabel = 'uppercase tracking-[0.12em] text-bronze text-xs font-medium font-display';
+
+// Tags
+const kTag = 'text-xs px-2.5 py-1 rounded-md bg-surface border border-brand text-muted';

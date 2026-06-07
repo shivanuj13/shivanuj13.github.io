@@ -1,8 +1,10 @@
 import 'package:anuj_kumar/constants/theme.dart';
+import 'package:anuj_kumar/model/data_model.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:anuj_kumar/model/data_model.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart';
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Target;
+
+const _allProjectsUrl = 'https://github.com/shivanuj13?tab=repositories';
 
 @client
 class ProjectsSection extends StatelessComponent {
@@ -10,39 +12,73 @@ class ProjectsSection extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return section(id: 'projects', classes: 'py-20 px-6 max-w-6xl mx-auto', [
-      h2(classes: 'text-2xl md:text-3xl font-bold text-white mb-12 flex items-center gap-3', [
-        Code(styles: Styles(color: violet600)),
-        Component.text('Featured Projects'),
-      ]),
-
-      div(classes: 'grid grid-cols-1 md:grid-cols-2 gap-6', [
-        for (var proj in data.projects.list)
-          a(
-            href: proj.link,
-            classes:
-                'group p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.04] hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] transition-all duration-300 flex flex-col h-full',
-            [
-              div(classes: 'flex justify-between items-start mb-4', [
-                div([
-                  h3(
-                    classes:
-                        'text-lg md:text-xl font-bold text-gray-200 group-hover:text-violet-300 transition-colors flex items-center gap-2',
-                    [Component.text(proj.title)],
-                  ),
-                  p(classes: 'text-xs text-fuchsia-400/80 font-mono mt-1', [Component.text(proj.tech)]),
+    return section(
+      id: 'projects',
+      classes: '$kContainer $kSectionSpacing',
+      [
+        div(
+          classes: 'flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 $kSectionTitleGap',
+          [
+            h2(
+              classes: '$kSectionTitle flex items-center gap-3',
+              [
+                Code(styles: Styles(color: bronze, width: 28.px, height: 28.px)),
+                Component.text('Featured Projects'),
+              ],
+            ),
+            a(
+              href: _allProjectsUrl,
+              target: Target.blank,
+              classes:
+                  'inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-brand text-muted text-xs font-medium transition-editorial-fast hover:text-bronze hover:border-bronze/40 shrink-0 self-start sm:self-center',
+              [
+                Component.text('All Projects'),
+                ExternalLink(styles: Styles(width: 14.px, height: 14.px)),
+              ],
+            ),
+          ],
+        ),
+        div(classes: 'grid grid-cols-1 lg:grid-cols-2 gap-8', [
+          for (var proj in data.projects.list)
+            a(
+              href: proj.link,
+              target: Target.blank,
+              classes:
+                  'group flex flex-col h-full rounded-[20px] bg-surface border border-brand p-8 transition-editorial hover:-translate-y-1 hover:border-bronze/40',
+              [
+                p(classes: kLabel, [Component.text(proj.category)]),
+                h3(
+                  classes:
+                      'font-display text-xl md:text-2xl font-medium text-primary mt-4 mb-6 group-hover:text-bronze transition-editorial-fast',
+                  [Component.text(proj.title)],
+                ),
+                div(classes: 'space-y-4 flex-grow', [
+                  div([
+                    p(classes: 'text-xs uppercase tracking-[0.08em] text-muted mb-1 font-display', [
+                      Component.text('Problem'),
+                    ]),
+                    p(classes: 'text-sm text-muted leading-[1.7]', [Component.text(proj.problem)]),
+                  ]),
+                  div([
+                    p(classes: 'text-xs uppercase tracking-[0.08em] text-bronze mb-1 font-display', [
+                      Component.text('Outcome'),
+                    ]),
+                    p(classes: 'text-sm text-primary leading-[1.7] font-medium', [
+                      Component.text(proj.outcome),
+                    ]),
+                  ]),
+                  p(classes: 'text-xs text-muted font-mono pt-2', [Component.text(proj.tech)]),
                 ]),
-                if (proj.tinyDesc != null)
-                  span(
-                    classes:
-                        'text-xs font-medium px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 whitespace-nowrap',
-                    [Component.text(proj.tinyDesc!)],
+                div(classes: 'mt-8 pt-6 border-t border-brand flex items-center gap-2 text-sm text-bronze font-medium', [
+                  Component.text('Explore'),
+                  ArrowRight(
+                    styles: Styles(width: 16.px, height: 16.px),
                   ),
-              ]),
-              p(classes: 'text-gray-400 text-sm leading-relaxed flex-grow', [Component.text(proj.desc)]),
-            ],
-          ),
-      ]),
-    ]);
+                ]),
+              ],
+            ),
+        ]),
+      ],
+    );
   }
 }
