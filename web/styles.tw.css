@@ -125,6 +125,21 @@ html[data-theme="dark"] {
     background-color: var(--token-bg);
   }
 
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: var(--token-bg);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, var(--token-mesh-glow), transparent 70%),
+      radial-gradient(circle, var(--token-mesh-dot) 1px, transparent 1px),
+      linear-gradient(135deg, var(--token-mesh-line) 25%, transparent 25%),
+      linear-gradient(225deg, var(--token-mesh-line) 25%, transparent 25%);
+    background-size: 100% 100%, 24px 24px, 48px 48px, 48px 48px;
+  }
+
   section {
     scroll-margin-top: 5rem;
   }
@@ -151,14 +166,85 @@ html[data-theme="dark"] {
 }
 
 @layer utilities {
-  .bg-editorial {
-    background-color: var(--token-bg);
-    background-image:
-      radial-gradient(ellipse 80% 60% at 50% 0%, var(--token-mesh-glow), transparent 70%),
-      radial-gradient(circle, var(--token-mesh-dot) 1px, transparent 1px),
-      linear-gradient(135deg, var(--token-mesh-line) 25%, transparent 25%),
-      linear-gradient(225deg, var(--token-mesh-line) 25%, transparent 25%);
-    background-size: 100% 100%, 24px 24px, 48px 48px, 48px 48px;
+  /* Experience timeline — single spine with curved branches */
+  .exp-timeline {
+    --exp-step-pad: 2rem;
+    --exp-role-pad: 1.25rem;
+    --exp-step-curve-len: 1.375rem;
+    --exp-sub-curve-len: 0.625rem;
+    --exp-line: rgba(138, 91, 42, 0.36);
+    --exp-line-width: 2px;
+    border-left: var(--exp-line-width) solid var(--exp-line);
+    margin-left: 0.5rem;
+  }
+
+  .exp-step {
+    position: relative;
+    padding-left: var(--exp-step-pad);
+  }
+
+  .exp-step-curve,
+  .exp-substep-curve {
+    position: absolute;
+    top: 1.125rem;
+    height: 1rem;
+    border-bottom: var(--exp-line-width) solid var(--exp-line);
+    border-bottom-left-radius: 12px;
+    pointer-events: none;
+  }
+
+  .exp-step-curve {
+    left: 0;
+    width: var(--exp-step-curve-len);
+  }
+
+  .exp-marker,
+  .exp-submarker {
+    position: absolute;
+    border-radius: 9999px;
+    background-color: var(--token-bronze);
+    border: 2px solid var(--token-bg);
+    z-index: 1;
+  }
+
+  .exp-marker {
+    left: -8px;
+    top: 0.625rem;
+    width: 12px;
+    height: 12px;
+  }
+
+  .exp-substep {
+    position: relative;
+    padding-left: var(--exp-role-pad);
+  }
+
+  .exp-substep-curve {
+    left: calc(-1 * var(--exp-step-pad));
+    width: calc(var(--exp-step-pad) + var(--exp-sub-curve-len));
+  }
+
+  .exp-submarker {
+    left: calc(-1 * var(--exp-step-pad) - 7px);
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    opacity: 0.9;
+  }
+
+  @media (min-width: 768px) {
+    .exp-timeline {
+      --exp-step-pad: 3rem;
+      --exp-role-pad: 1.5rem;
+      --exp-step-curve-len: 1.5rem;
+      --exp-sub-curve-len: 0.75rem;
+      margin-left: 1rem;
+    }
+
+    .exp-step-curve,
+    .exp-substep-curve {
+      border-bottom-left-radius: 14px;
+    }
   }
 
   .bg-bronze-gradient {

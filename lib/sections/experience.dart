@@ -20,7 +20,7 @@ class ExperienceSection extends StatelessComponent {
           title: 'Experience',
           icon: Layers(styles: Styles(color: bronze, width: 28.px, height: 28.px)),
         ),
-        div(classes: 'relative border-l border-bronze/30 ml-2 md:ml-4 space-y-14 md:space-y-16', [
+        div(classes: 'exp-timeline relative space-y-14 md:space-y-16', [
           for (var job in data.experiences.list)
             if (job.isGrouped)
               _groupedExperience(job)
@@ -32,8 +32,8 @@ class ExperienceSection extends StatelessComponent {
   }
 
   Component _singleExperience(Experience job) {
-    return div(classes: 'relative pl-8 md:pl-12', [
-      _timelineMarker(),
+    return div(classes: 'exp-step', [
+      _stepAnchor(),
       _companyHeader(job.company, job.role!, job.date!),
       if (job.location != null) _location(job.location!),
       _bulletList(job.description!),
@@ -43,8 +43,8 @@ class ExperienceSection extends StatelessComponent {
   }
 
   Component _groupedExperience(Experience job) {
-    return div(classes: 'relative pl-8 md:pl-12', [
-      _timelineMarker(),
+    return div(classes: 'exp-step', [
+      _stepAnchor(),
       div(classes: 'flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-3', [
         h3(classes: 'text-lg md:text-xl font-semibold text-primary', [
           Component.text(job.company),
@@ -55,38 +55,44 @@ class ExperienceSection extends StatelessComponent {
             [Component.text(job.date!)],
           ),
       ]),
-      
       if (job.location != null) _location(job.location!),
       if (job.note != null) _note(job.note!),
       _externalLinks(job, spacing: 'mb-5'),
-      div(classes: 'space-y-10', [
-        for (var i = 0; i < job.roles!.length; i++) ...[
-          if (i > 0) div(classes: 'border-t border-brand', []),
-          _roleBlock(job.roles![i]),
-        ],
+      div(classes: 'exp-roles space-y-10 mt-6', [
+        for (var role in job.roles!) _roleBlock(role),
       ]),
     ]);
   }
 
   Component _roleBlock(ExperienceRole role) {
-    return div(classes: 'space-y-4', [
-      div(classes: 'flex flex-col sm:flex-row sm:items-baseline justify-between gap-2', [
-        h4(classes: 'text-base font-medium text-primary', [Component.text(role.role)]),
-        span(
-          classes: 'text-xs text-muted font-body bg-surface-elevated border border-brand px-3 py-1 rounded-md w-fit',
-          [Component.text(role.date)],
-        ),
+    return div(classes: 'exp-substep', [
+      _substepAnchor(),
+      div(classes: 'space-y-4', [
+        div(classes: 'flex flex-col sm:flex-row sm:items-baseline justify-between gap-2', [
+          h4(classes: 'text-base font-medium text-primary', [Component.text(role.role)]),
+          span(
+            classes: 'text-xs text-muted font-body bg-surface-elevated border border-brand px-3 py-1 rounded-md w-fit',
+            [Component.text(role.date)],
+          ),
+        ]),
+        _bulletList(role.description),
+        _techTags(role.tech),
       ]),
-      _bulletList(role.description),
-      _techTags(role.tech),
     ]);
   }
 
-  Component _timelineMarker() {
-    return div(
-      classes: 'absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-bronze border-2 border-bg',
-      [],
-    );
+  Component _stepAnchor() {
+    return div([
+      div(classes: 'exp-step-curve', []),
+      div(classes: 'exp-marker', []),
+    ]);
+  }
+
+  Component _substepAnchor() {
+    return div([
+      div(classes: 'exp-substep-curve', []),
+      div(classes: 'exp-submarker', []),
+    ]);
   }
 
   Component _companyHeader(String company, String role, String date) {

@@ -16,7 +16,7 @@ class Main extends StatelessComponent {
   Component build(BuildContext context) {
     return div(
       classes:
-          'min-h-screen bg-editorial text-primary font-body selection:bg-bronze/20 selection:text-bronze-bright overflow-x-hidden',
+          'min-h-screen text-primary font-body selection:bg-bronze/20 selection:text-bronze-bright overflow-x-hidden',
       [
         const HeaderSection(),
         const About(),
