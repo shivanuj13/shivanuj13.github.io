@@ -20,7 +20,7 @@ class DataModel {
 const data = DataModel(
   profile: Profile(
     name: "Anuj Kumar",
-    title: "SDE 1 (Mobile) | Flutter Specialist",
+    title: "SDE 2 (Mobile) | Flutter Specialist",
     heroLabel: "MOBILE APPLICATION ENGINEER",
     heroHeadline: "Designing thoughtful mobile experiences with engineering precision.",
     tagline:
@@ -34,7 +34,7 @@ const data = DataModel(
       twitter: "https://x.com/return_anuj",
     ),
   ),
-  heroStats: const HeroStats(
+  heroStats: HeroStats(
     projectsDelivered: "10+",
     coreStack: "Flutter · Dart · SDUI",
     contribution: "Flutter SDK contributor",
@@ -71,7 +71,7 @@ const data = DataModel(
           ExperienceRole(
             role: "SDE 1 (Mobile)",
             date: "Jul 2025 – Dec 2025",
-            tech: ["Flutter", "Server Driven UI", "Riverpod" "Fintech"],
+            tech: ["Flutter", "Server Driven UI", "Riverpod"],
             description: [
               "Developed end-to-end Mutual Fund Buy and Sell journeys, supporting seamless investment and redemption workflows for retail investors.",
               "Built investor dashboards for tracking orders, SIPs, portfolio activity, and transaction status, improving visibility into investment performance.",
@@ -124,7 +124,7 @@ const data = DataModel(
       Project(
         title: "Monity",
         category: "Mobile Product",
-        tech: "Flutter · Offline-First · Android · Credit Cards",
+        tech: "Jetpack Compose · Android · Kotlin · Offline-First · Credit Cards",
         link: "https://monity.buffersync.com/",
         problem:
             "Most expense trackers require cloud accounts, show ads, and make daily logging tedious—while rarely supporting offline credit card tracking alongside cash and UPI.",
@@ -162,7 +162,7 @@ const data = DataModel(
       Project(
         title: "Simple Blogging App",
         category: "Full-Stack Mobile",
-        tech: "Flutter, Node.js/Firebase",
+        tech: "Flutter · Node.js · Firebase",
         link: "https://github.com/shivanuj13/simple_blogger",
         problem:
             "Content creators needed a cross-platform blogging app with flexible backend options for rapid prototyping and production deployment.",
@@ -228,7 +228,7 @@ int _completedYearsSince(DateTime start, DateTime end) {
 }
 
 class HeroStats {
-  static final DateTime careerStart = DateTime(2023, 9, 1);
+  static final DateTime careerStart = DateTime(2022, 5, 1);
 
   final String projectsDelivered;
   final String coreStack;
